@@ -6,8 +6,7 @@ Santeri Vauramo 2024<br><br>
 Tässä osiossa kerron Linuxin asentamisesta virtuaalikoneeseen. En ole aiemmin tehnyt vastaavaa, paitsi asentanut Nindento 64 emulaattorin Windows PC:lle, mutta siinä ei ollut mielestäni mitään ihmeellistä, joten käyn hyvin tarkasti läpi Tero Karvisen ohjeita joka vaiheessa.
 <br>
 Oma host kokoonpanoni on seuraavanlainen:<br>
-![Prosessori](https://github.com/vaurasan/h1/blob/main/Prossu.jpg)<br>
-![Windows](https://github.com/vaurasan/h1/blob/main/Windows.jpg)<br>
+
 (huom. kokeilin ensin Teron tapaa tuoda kuvia tänne, mutta kun se ei toiminut aloin oikomaan kuvakaappaustyökalulla ctrl+c, ctrl+v:tä hyväksi käyttäen, tällaiselle aloittelijalle huomattavasti nopeampi tapa, mutta toki hyvä olisi osata molemmat)<br><br>
 Tässä vaiheessa huomaan, että ainakaan minulla nämä kuvat eivät toimi vaikka pitäisi kaiken järjen mukaan. En kuitenkaan siihen tuhlaa enempiä aikoja vaan kirjoitan tietokoneeni specsit tähän tekstinä:(myöhemmin huomasin, että kaikki kuvat toimii, mutta jätän tekstit tähän kuitenkin varmuuden vuoksi)<br>
 
@@ -28,7 +27,7 @@ Aloitan lataamalla [debian-live-12.6.0-amd64-xfce.iso] tiedoston (https://cdimag
 
 Seuraavaksi lataan Virtualbox virtuaalikoneen osoitteesta: https://www.virtualbox.org/wiki/Downloads.<br>
 Alan asentaa virtuaalikonetta asennusohjelmalla, valittuani kohdekansion, asennusohjelma varoittaa, että nettiyhteys katkeaa hetkeksi joten tallennan tämän kirjoitelman varmuuden vuoksi.<br><br>
-![virtuaaliasennus1](https://github.com/user-attachments/assets/ac510f45-e562-40cb-ad25-af098883e1b4)<br><br>
+![virtuaaliasennus1](h1a1.png)<br><br>
 
 Varoituksesta huolimatta, pysyn rauhallisena ja jatkan asennusta.<br>
 Vaan enpä jatkakaan, kun seuraava herja ilmestyy ruudulle:<br><br>
