@@ -27,7 +27,7 @@ Aloitan lataamalla [debian-live-12.6.0-amd64-xfce.iso] tiedoston (https://cdimag
 
 Seuraavaksi lataan Virtualbox virtuaalikoneen osoitteesta: https://www.virtualbox.org/wiki/Downloads.<br>
 Alan asentaa virtuaalikonetta asennusohjelmalla, valittuani kohdekansion, asennusohjelma varoittaa, että nettiyhteys katkeaa hetkeksi joten tallennan tämän kirjoitelman varmuuden vuoksi.<br><br>
-![virtuaaliasennus1](h1a1.png)<br><br>
+![virtuaaliasennus1](images/h1a1.png)<br><br>
 
 Varoituksesta huolimatta, pysyn rauhallisena ja jatkan asennusta.<br>
 Vaan enpä jatkakaan, kun seuraava herja ilmestyy ruudulle:<br><br>
