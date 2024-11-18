@@ -53,18 +53,18 @@ Apache2 ehdin asentaa eilen tunnilla<br>
 Laitan seuraavan komennon, jotta apache2 käynnistyy, kun käyttöjärjestelmä käynnistyy:<br>
 > sudo systemctl enable --now apache2<br>
 
-![apache2now](https://github.com/user-attachments/assets/7703ac20-b2c8-47aa-a658-11d452ff7ea8)<br>
+![apache2now](h31.png)<br>
 
 Seuraavaksi kokeillaan localhostia komentokehotteessa:
 > curl http://localhost<br>
 
 Localhost toimii komentokehotteessa:<br>
 
-![toimii](https://github.com/user-attachments/assets/7cde5b4d-7fed-4d67-98c6-28c96543fa47)<br>
+![toimii](h32.png)<br>
 
 Kokeillaan vielä Firefoxilla:<br>
 
-![toimii2](https://github.com/user-attachments/assets/1e2a1ded-50bd-4f34-9aaf-fbc29133b736)<br>
+![toimii2](h33.png)<br>
 
 Myös Firefoxilla toimii.<br>
 
@@ -75,7 +75,7 @@ Myös Firefoxilla toimii.<br>
 *Aloitus 5.9.2024 klo 13:10*<br><br>
 Yritetään etsiä lokista tietoja: "sudo journalctl" ei näytä ainakaan vielä tietoja.<br>
 
-![imagejournalctl](https://github.com/user-attachments/assets/d35b2147-6a58-4ddd-82f8-39b086968224)<br>
+![imagejournalctl](h34.png)<br>
 
 Kokeillaan hakea lokit toista kautta:<br>
 
@@ -83,7 +83,7 @@ Kokeillaan hakea lokit toista kautta:<br>
 
 "tail" näyttää lokit tiedoston loppupäästä.<br>
 
-![imagevarlog](https://github.com/user-attachments/assets/575d8183-423d-4166-8aac-9561810126bb)
+![imagevarlog](h35.png)
 <br>
 Lokien analysointi onkin hieman hankalampi asia, yritän lonkalta ensin ja sitten haen tietoa internetistä.<br><br>
 Vasemmalla näkyy 127.0.0.1, tämä on localhost IP-osoite.<br>
@@ -107,7 +107,7 @@ Tässä välissä itsestäänselvyytenä **päivämäärä**, sekä **aika** ja 
 
 Unohdin katsoa vielä "sudo tail /var/log/apache2/error.log":lla virhelokit. Teen sen nyt *6.9.2024 klo 8:30*<br>
 
-![imageapacheerrorlog](https://github.com/user-attachments/assets/e457d7e2-ec00-4427-a267-94eeedf108fb)<br>
+![imageapacheerrorlog](h36.png)<br>
 
 https://stackify.com/apache-error-log-explained/ täältä löytyy tietoa näistä virhelokeista.<br>
 https://httpd.apache.org/docs/2.4/mpm.html myös täältä.<br>
@@ -127,7 +127,7 @@ Kuvassa näkyy:<br>
 
 Komennolla "echo "hattu.example.com"|sudo tee /var/www/html/index.html" lähdetään päällekirjoittamaan index.html tiedostoa.<br>
 
-![image](https://github.com/user-attachments/assets/e63d6535-37aa-4c6e-b717-1bb26cd5c81c)<br>
+![image](h37.png)<br>
 
 Lisätään Name Based Virtual Host:<br>
 
@@ -135,18 +135,18 @@ Lisätään Name Based Virtual Host:<br>
 
 Lisätään tiedot:<br>
 
-![imageconffi](https://github.com/user-attachments/assets/605f74a0-d1de-4765-bee2-0d892da81633)<br>
+![imageconffi](h38.png)<br>
 
 Ajetaan "sudo a2ensite hattu.example.com" ja käynnistetään apache2 uudestaan komennolla "sudo systemctl restart apache2"<br>
 
-![imagea2ensite-restart](https://github.com/user-attachments/assets/8885c74e-730b-4c99-9c7e-2e24cf684a6c)<br>
+![imagea2ensite-restart](h39.png)<br>
 
 Kokeillaan tehdä web sivu normaalina käyttäjänä:<br>
 
 > mkdir -p /home/xubuntu/publicsites/hattu.example.com/<br>
 
 "Permission denied"<br>
-![image-denied](https://github.com/user-attachments/assets/ffd35fdf-98f8-4bed-ae74-c47bbbd81e20)<br>
+![image-denied](h311.png)<br>
 
 Vaihdoin "xubuntu" nimen "santeri":ksi. Nyt kansioiden luonti onnistui. Täytyy vain käydä vielä muokkaamassa .conf tiedostoon xubuntujen tilalle santeri<br>
 
@@ -160,17 +160,17 @@ Nyt voidaan testata web sivua:<br>
 
 Ei oikeutta tähän resurssiin<br>
 
-![imagedenied-2](https://github.com/user-attachments/assets/278558a0-a3c7-4cb9-b036-16f9af18b816)<br>
+![imagedenied-2](h312.png)<br>
 
 Luon uudestaan kansion: "mkdir -p /home/santeri/publicsites/hattu.example.com/" ja varmuudeksi "echo hattu > /home/santeri/publicsites/hattu.example.com/index.html"<br>
 
 Edelleen sama error, ei oikeutta.<br>
 
 Ajoin uudelleen samat komennot tuolta alusta lähtien, nyt "curl -H 'Host: hattu.example.com' localhost", ohjeen "Default" tekstiin kirjoitin "hattu", nyt komento antaa seuraavan:<br>
-![imagehattu](https://github.com/user-attachments/assets/e5c3a535-8964-4405-a220-dd58261153fb)<br>
+![imagehattu](h313.png)<br>
 
 Ja "curl localhost" seuraavaa:<br>
-![image-curl.local](https://github.com/user-attachments/assets/93d20964-af02-467b-bd7c-daa1494433b2)<br>
+![image-curl.local](h314.png)<br>
 
 *Tauko klo 9:46, aikaa käytetty 45min*<br>
 *Jatkuu klo 10:04*<br>
@@ -179,16 +179,16 @@ Tuossa tauolta palatessa katsoin seuraavaa videota: https://www.youtube.com/watc
 > 127.0.1.1 hattu<br>
 > 127.0.0.1 hattu.example.com<br>
 
-![imagehosts](https://github.com/user-attachments/assets/0a272189-f5b3-4501-95cc-bec9ca665714)<br>
+![imagehosts](h315.png)<br>
 
 
 Nyt näyttää toimivan (muutin localhostin Defaultiksi välissä)<br>
 
-![image-toimii](https://github.com/user-attachments/assets/4658a10d-3ee9-4856-a3d2-e24c68fe5824)<br>
+![image-toimii](h316.png)<br>
 
-![imagefox1](https://github.com/user-attachments/assets/e5602298-1b41-4d4a-99dd-b407859d7009)<br>
+![imagefox1](h317.png)<br>
 
-![imagefox2](https://github.com/user-attachments/assets/adea9980-a827-4e41-80c1-916cc557f0ff)<br>
+![imagefox2](h318.png)<br>
 
 *Valmis klo 10:14, aikaa meni yhteensä 55min*
 
@@ -200,11 +200,11 @@ Tähän tietenkin Karvisen (2012) ohjeet: https://terokarvinen.com/2012/short-ht
 
 Menen kansioon /home/santeri/publicsites/hattu.example.com/ ja sieltä muokkaan "micro edit index.html"<br>
 
-![image-html5](https://github.com/user-attachments/assets/9468101f-37e1-4f6c-b808-bc7ab8a8df32)
+![image-html5](h319.png)
 <br>
 Nyt hattu.example.com näyttää tältä:<br>
 
-![imagefox3](https://github.com/user-attachments/assets/a1987840-0f5f-40f8-8d67-a839120100c1)<br>
+![imagefox3](h320.png)<br>
 
 *Valmis klo 10:28, aikaa meni 11min*
 
@@ -217,11 +217,11 @@ https://curl.se/docs/tutorial.html <- Täällä myös hyvin selitetty asioita.<b
 
 "curl" palauttaa web-palvelimen pääsivun:<br>
 
-![image-curl](https://github.com/user-attachments/assets/85f4e960-eaab-4ab5-9973-206a7be1697b)<br>
+![image-curl](h321.png)<br>
 
 "curl -I" palauttaa web-sivun yksityiskohtaisia tietoja:<br>
 
-![imagecurl-I](https://github.com/user-attachments/assets/976bffaf-5497-4899-ba4f-4b3fd89f8511)<br>
+![imagecurl-I](h322.png)<br>
 
 **Date** = päivämäärä<br>
 **Server** = palvelin, versio ja käyttöjärjestelmä<br>
@@ -234,13 +234,13 @@ https://curl.se/docs/tutorial.html <- Täällä myös hyvin selitetty asioita.<b
 
 Kokeilin vielä käydä muuttamassa web-sivun tekstiä, jotta saan ETagin muuttumaan:<br>
 
-![imageetag](https://github.com/user-attachments/assets/6749b67e-d9a8-4ae8-a327-320133ffa75c)<br>
+![imageetag](h323.png)<br>
 
 *Valmis klo 11:09, aikaa kului 39min*<br>
 
 Bonus, "curl -i" palauttaa sekä "curl":n, että "curl -I":n (tätä riviä muokattu myöhemmin keskeneräisen lauseen vuoksi)
 
-![imagecurliii](https://github.com/user-attachments/assets/c294091c-5e59-4063-97ed-902fee655012)
+![imagecurliii](h324.png)
 
 
 ## m) Vapaaehtoinen, suosittelen tekemään: Hanki GitHub Education -paketti
@@ -252,7 +252,7 @@ Tämän hankin GitHubin ohjeiden mukaan.
 Jälkikäteen tajusin, kuinka kohdan e) HTML5-sivu validoidaan oikein.<br>
 Tässä kuvassa HTML-koodia muokattu niin, että validaattori päästää läpi:<br>
 
-![imagevalidator](https://github.com/user-attachments/assets/9ba01e97-f223-47ef-b485-ffaab1815c78)<br>
+![imagevalidator](h325.png)<br>
 
 Validaattori löytyy osoitteesta: [https://validator.w3.org/](https://validator.w3.org/).<br>
 Välilehdellä "Validate by Direct Input" pystyy syöttämään suoraan HTML-koodin tekstikenttään.
@@ -264,6 +264,12 @@ Fizpatrick, S. 2020. Understanding the Apache Access Log: View, Locate and Analy
 Karvinen, T. 2012. Short HTML5 page. Luettavissa: https://terokarvinen.com/2012/short-html5-page/. Luettu 6.9.2024
 Karvinen, T. 2018. Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address. Luettavissa: https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/. Luettu 5.9.2024<br>
 The Apache Foundation. 2024. Name-based Virtual Host Support. Luettavissa: https://httpd.apache.org/docs/2.4/vhosts/name-based.html. Luettu 5.9.2024
+
+---
+
+Tätä dokumenttia saa kopioida ja muokata GNU General Public License (versio 2 tai uudempi) mukaisesti. http://www.gnu.org/licenses/gpl.html<br>
+Pohjana Tero Karvinen 2012: Linux kurssi, http://terokarvinen.com<br><br>
+Kirjoittanut <em>Santeri Vauramo</em>, 2024
 
 ---
 
