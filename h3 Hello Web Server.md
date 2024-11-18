@@ -53,18 +53,18 @@ Apache2 ehdin asentaa eilen tunnilla<br>
 Laitan seuraavan komennon, jotta apache2 käynnistyy, kun käyttöjärjestelmä käynnistyy:<br>
 > sudo systemctl enable --now apache2<br>
 
-![apache2now](h31.png)<br>
+![apache2now](images/h31.png)<br>
 
 Seuraavaksi kokeillaan localhostia komentokehotteessa:
 > curl http://localhost<br>
 
 Localhost toimii komentokehotteessa:<br>
 
-![toimii](h32.png)<br>
+![toimii](images/h32.png)<br>
 
 Kokeillaan vielä Firefoxilla:<br>
 
-![toimii2](h33.png)<br>
+![toimii2](images/h33.png)<br>
 
 Myös Firefoxilla toimii.<br>
 
@@ -75,7 +75,7 @@ Myös Firefoxilla toimii.<br>
 *Aloitus 5.9.2024 klo 13:10*<br><br>
 Yritetään etsiä lokista tietoja: "sudo journalctl" ei näytä ainakaan vielä tietoja.<br>
 
-![imagejournalctl](h34.png)<br>
+![imagejournalctl](images/h34.png)<br>
 
 Kokeillaan hakea lokit toista kautta:<br>
 
@@ -83,7 +83,7 @@ Kokeillaan hakea lokit toista kautta:<br>
 
 "tail" näyttää lokit tiedoston loppupäästä.<br>
 
-![imagevarlog](h35.png)
+![imagevarlog](images/h35.png)
 <br>
 Lokien analysointi onkin hieman hankalampi asia, yritän lonkalta ensin ja sitten haen tietoa internetistä.<br><br>
 Vasemmalla näkyy 127.0.0.1, tämä on localhost IP-osoite.<br>
@@ -107,7 +107,7 @@ Tässä välissä itsestäänselvyytenä **päivämäärä**, sekä **aika** ja 
 
 Unohdin katsoa vielä "sudo tail /var/log/apache2/error.log":lla virhelokit. Teen sen nyt *6.9.2024 klo 8:30*<br>
 
-![imageapacheerrorlog](h36.png)<br>
+![imageapacheerrorlog](images/h36.png)<br>
 
 https://stackify.com/apache-error-log-explained/ täältä löytyy tietoa näistä virhelokeista.<br>
 https://httpd.apache.org/docs/2.4/mpm.html myös täältä.<br>
@@ -127,7 +127,7 @@ Kuvassa näkyy:<br>
 
 Komennolla "echo "hattu.example.com"|sudo tee /var/www/html/index.html" lähdetään päällekirjoittamaan index.html tiedostoa.<br>
 
-![image](h37.png)<br>
+![image](images/h37.png)<br>
 
 Lisätään Name Based Virtual Host:<br>
 
@@ -135,18 +135,18 @@ Lisätään Name Based Virtual Host:<br>
 
 Lisätään tiedot:<br>
 
-![imageconffi](h38.png)<br>
+![imageconffi](images/h38.png)<br>
 
 Ajetaan "sudo a2ensite hattu.example.com" ja käynnistetään apache2 uudestaan komennolla "sudo systemctl restart apache2"<br>
 
-![imagea2ensite-restart](h39.png)<br>
+![imagea2ensite-restart](images/h39.png)<br>
 
 Kokeillaan tehdä web sivu normaalina käyttäjänä:<br>
 
 > mkdir -p /home/xubuntu/publicsites/hattu.example.com/<br>
 
 "Permission denied"<br>
-![image-denied](h311.png)<br>
+![image-denied](images/h311.png)<br>
 
 Vaihdoin "xubuntu" nimen "santeri":ksi. Nyt kansioiden luonti onnistui. Täytyy vain käydä vielä muokkaamassa .conf tiedostoon xubuntujen tilalle santeri<br>
 
@@ -160,17 +160,17 @@ Nyt voidaan testata web sivua:<br>
 
 Ei oikeutta tähän resurssiin<br>
 
-![imagedenied-2](h312.png)<br>
+![imagedenied-2](images/h312.png)<br>
 
 Luon uudestaan kansion: "mkdir -p /home/santeri/publicsites/hattu.example.com/" ja varmuudeksi "echo hattu > /home/santeri/publicsites/hattu.example.com/index.html"<br>
 
 Edelleen sama error, ei oikeutta.<br>
 
 Ajoin uudelleen samat komennot tuolta alusta lähtien, nyt "curl -H 'Host: hattu.example.com' localhost", ohjeen "Default" tekstiin kirjoitin "hattu", nyt komento antaa seuraavan:<br>
-![imagehattu](h313.png)<br>
+![imagehattu](images/h313.png)<br>
 
 Ja "curl localhost" seuraavaa:<br>
-![image-curl.local](h314.png)<br>
+![image-curl.local](images/h314.png)<br>
 
 *Tauko klo 9:46, aikaa käytetty 45min*<br>
 *Jatkuu klo 10:04*<br>
@@ -179,16 +179,16 @@ Tuossa tauolta palatessa katsoin seuraavaa videota: https://www.youtube.com/watc
 > 127.0.1.1 hattu<br>
 > 127.0.0.1 hattu.example.com<br>
 
-![imagehosts](h315.png)<br>
+![imagehosts](images/h315.png)<br>
 
 
 Nyt näyttää toimivan (muutin localhostin Defaultiksi välissä)<br>
 
-![image-toimii](h316.png)<br>
+![image-toimii](images/h316.png)<br>
 
-![imagefox1](h317.png)<br>
+![imagefox1](images/h317.png)<br>
 
-![imagefox2](h318.png)<br>
+![imagefox2](images/h318.png)<br>
 
 *Valmis klo 10:14, aikaa meni yhteensä 55min*
 
@@ -200,11 +200,11 @@ Tähän tietenkin Karvisen (2012) ohjeet: https://terokarvinen.com/2012/short-ht
 
 Menen kansioon /home/santeri/publicsites/hattu.example.com/ ja sieltä muokkaan "micro edit index.html"<br>
 
-![image-html5](h319.png)
+![image-html5](images/h319.png)
 <br>
 Nyt hattu.example.com näyttää tältä:<br>
 
-![imagefox3](h320.png)<br>
+![imagefox3](images/h320.png)<br>
 
 *Valmis klo 10:28, aikaa meni 11min*
 
@@ -217,11 +217,11 @@ https://curl.se/docs/tutorial.html <- Täällä myös hyvin selitetty asioita.<b
 
 "curl" palauttaa web-palvelimen pääsivun:<br>
 
-![image-curl](h321.png)<br>
+![image-curl](images/h321.png)<br>
 
 "curl -I" palauttaa web-sivun yksityiskohtaisia tietoja:<br>
 
-![imagecurl-I](h322.png)<br>
+![imagecurl-I](images/h322.png)<br>
 
 **Date** = päivämäärä<br>
 **Server** = palvelin, versio ja käyttöjärjestelmä<br>
@@ -234,13 +234,13 @@ https://curl.se/docs/tutorial.html <- Täällä myös hyvin selitetty asioita.<b
 
 Kokeilin vielä käydä muuttamassa web-sivun tekstiä, jotta saan ETagin muuttumaan:<br>
 
-![imageetag](h323.png)<br>
+![imageetag](images/h323.png)<br>
 
 *Valmis klo 11:09, aikaa kului 39min*<br>
 
 Bonus, "curl -i" palauttaa sekä "curl":n, että "curl -I":n (tätä riviä muokattu myöhemmin keskeneräisen lauseen vuoksi)
 
-![imagecurliii](h324.png)
+![imagecurliii](images/h324.png)
 
 
 ## m) Vapaaehtoinen, suosittelen tekemään: Hanki GitHub Education -paketti
@@ -252,7 +252,7 @@ Tämän hankin GitHubin ohjeiden mukaan.
 Jälkikäteen tajusin, kuinka kohdan e) HTML5-sivu validoidaan oikein.<br>
 Tässä kuvassa HTML-koodia muokattu niin, että validaattori päästää läpi:<br>
 
-![imagevalidator](h325.png)<br>
+![imagevalidator](images/h325.png)<br>
 
 Validaattori löytyy osoitteesta: [https://validator.w3.org/](https://validator.w3.org/).<br>
 Välilehdellä "Validate by Direct Input" pystyy syöttämään suoraan HTML-koodin tekstikenttään.
