@@ -31,29 +31,29 @@ Alan asentaa virtuaalikonetta asennusohjelmalla, valittuani kohdekansion, asennu
 
 Varoituksesta huolimatta, pysyn rauhallisena ja jatkan asennusta.<br>
 Vaan enpä jatkakaan, kun seuraava herja ilmestyy ruudulle:<br><br>
-![image2](h1a2)<br><br>
+![image2](h1a2.png)<br><br>
 
 Pikainen Googlaus, tai pikemminkin Duckaus tuo minut tälle sivustolle: https://www.sysnettechsolutions.com/en/fix-python-win32api-virtualbox/<br>
 Ohjetta noudattaen, menen python.org/downloads sivulle, josta lataan uusimman Python version 3.12.5 ja suoritan asennustiedoston järjestelmänvalvojana.<br>
 Tämän jälkeen step 3:n mukaan avaan PowerShellin järjestelmänvalvojana ja kirjoitan komentoriville: py -m pip install pywin32.<br><br>
-Seuraavanlainen virhe tapahtuu: ![pywinerror](h1a3)<br><br>
+Seuraavanlainen virhe tapahtuu: ![pywinerror](h1a3.png)<br><br>
 
 Kokeilen poistaa ja uudelleenasentaa Pythonin koneeltani samaisella asennusohjelmalla, jonka juuri latasin. Nyt uudestaan PowerShelliin ja sama litania komentoriville, ja homma onnistui.<br><br>
-![image](h1a4)<br><br>
+![image](h1a4.png)<br><br>
 
 Tässä vaiheessa vaaditaan tietokoneen uudelleenkäynnistys, joten teen sen.<br>
 Nyt takaisin PowerShelliin järjestelmänvalvojana ja komentoriville ohjeen mukaan: python.exe -m pip install --upgrade pip.<br>
 Tulee virheilmoitus:<br><br>
-![image](h1a5)<br>
+![image](h1a5.png)<br>
 Tästä huolimatta yritän nyt asentaa Virtualboxia ja hämmästyksekseni ei enää tule samaa herjaa mikä tuli aiemmin, asennus menee läpi muitta mutkitta.<br>
 
 Seuraavaksi virtuaalikoneen luontiin.<br>
 Teron ohjeiden mukaan ylävalikosta Machine - New, aukeaa luonti-ikkuna, valitaan Expert Mode ja aletaan syöttämään haluttuja tietoja:<br>
 Jostain syystä en pysty laittamaan täppää kohtaan Skip Unattended Installation, pakko mennä näillä korteilla mitkä on jaettu.<br><br>
-![image](h1a6)<br><br>
+![image](h1a6.png)<br><br>
 
 Ohjeen mukaan Hardwareen Base Memory 4000MB. Sitten Create Virtual Hard Disk Now ja laitetaan Size 60GB. Valitaan VDI (VirtualBox Disk Image) ja painetaan Finish. Nyt näkyy vasemmalla luotu virtuaalikone offline-tilassa.<br><br>
-![image](h1a7)
+![image](h1a7.png)
 <br>
 
 ### Linuxin asentaminen juuri luotuun virtuaalikoneeseen
@@ -62,10 +62,10 @@ Ohjeen mukaan Hardwareen Base Memory 4000MB. Sitten Create Virtual Hard Disk Now
 - Storage välilehti auki, Controller: IDE-kohdasta valitaan CDROM Empty.<br>
 - Optical Drive kohtaan haetaan CD-levyn kuvaketta klikkaamalla Virtual Optical Disk File ja haetaan aiemmin ladattu debian-live-12.6.0-amd64-xfce Linuxin  asennusohjelma ja painetaan Choose. Nyt meillä on virtuaalikone ja virtuaalinen CD syötetty koneeseen sisälle.<br>
 - Tuplaklikataan virtuaalikonetta, nyt virtuaalikoneeseen muuttui tila Offlinesta -> Running, sekä Boot menu aukesi erilliseen ikkunaan. Tämä näyttää hieman erilaiselta kuin ohjeessa, mutta näillä mennään.<br><br>
-![image](h1a8)<br>
+![image](h1a8.png)<br>
 - Live Systemin kohdalla painoin Enteriä ja odottelin hetken. Nyt avautui Linux työpöytä asentamatta Linuxia, varsin merkillistä.<br>
 - Testataan toimivuus, Applications menusta Web Browser ja kokeillaan nettisivua, näyttää toimivan:<br><br>
-![image](h1a9)<br>
+![image](h1a9.png)<br>
 Kuva: https://www.mtv.fi/<br>
 - Homma pelittää, joten aletaan asentamaan Linuxia, valitaan Install Debian työpöydältä.<br>
 - Asennuskieleksi American English<br>
@@ -83,7 +83,7 @@ Pääsin kirjautumisikkunaan, syötin valitsemani käyttäjätunnuksen ja salasa
 
 Nyt mennään ohjeiden mukaan superkäyttäjän oikeuksin päivittelemään Debian, Applications: Terminal Emulatorista komennolla: sudo apt-get update<br>
 Seuraavaksi päivitetään ohjelmat komennolla: sudo apt-get -y dist-upgrade<br><br>
-Sitten asennetaan palomuuri: sudo apt-get -y install ufw, ja laitetaan se päälle: sudo ufw enable ![image](h1a10)
+Sitten asennetaan palomuuri: sudo apt-get -y install ufw, ja laitetaan se päälle: sudo ufw enable ![image](h1a10.png)
 <br><br>
 Bootataan virtuaalikone, Log Out -> Restart<br>
 Homma sitä myöten valmis.<br>
@@ -92,7 +92,7 @@ Note to self: epähuomiossa menin Scaled modeen mikä näytti aivan järkyttäv�
 Vielä lopuksi haluan Debianin toimimaan järkevämmällä resoluutiolla, joten menen Teron ohjeiden mukaan laittamaan asiat kuntoon VirtualBoxin lisäosalla. Syötetään kuvitteellinen CD levy asemaan menemällä Devices -> Insert Guest Additions CD image -> VBox_GAs... -> avatan Terminal Emulator ja mennään media/*käyttäjä*/VBox -> komento: sudo bash VBoxLinuxAdditions.run<br>
 Tämän jälkeen ruudulla tapahtuu asioita, bootataan virtuaalikone. Nyt on parempi resoluutio ja kaikki pelittää ja pystyn Devices välilehdeltä ottamaan Shared Clipboardista bidirectional asetuksen käyttöön ja voin copy pastettaa hostin ja virtuaalikoneen välillä tekstiä!<br><br>
 
-![valmis](h1a11)
+![valmis](h1a11.png)
 
 ## Lähteet
 
