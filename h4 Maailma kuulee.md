@@ -75,37 +75,37 @@ Selailin hetken suomen kielisiä palvelinvuokraajia ja totesin, että turhan kal
 
 Päätin siis ottaa ``GitHub Educationin`` kautta [DigitalOceanin](https://www.digitalocean.com/) tarjouksen, jolla saa 200$ käyttörahaa vuoden ajaksi palvelimien vuokraukseen.
 
-![DigitalOceanOffer](h411.png)
+![DigitalOceanOffer](images/h411.png)
 
 Syötin luottokorttitiedot henkilöllisyyden varmistamiseksi. Aloitan palvelimen vuokraamisen painamalla vihreällä pohjalla olevaa "Create" painiketta, jonka dropdown-menusta valitsen "Droplets *Create cloud servers*"
 
-![DOMenu](h412.png)
+![DOMenu](images/h412.png)
 
 Valitsen palvelimeksi näistä vaihtoehdoista Frankfurt, johtuen siitä, että merikaapeli kulkee suoraan Helsingistä Saksaan, Amsterdam olisi hyvänä kakkosvaihtoehtona. Halutaan, että palvelin on mahdollisimman lähellä. Tässä vaiheessa palvelimen hinta näyttää olevan 32$/kk, mutta ei huolehdita siitä vielä.
 
-![Frankfurt](h413.png)
+![Frankfurt](images/h413.png)
 
 Valitsen Debian V.12 käyttöjärjestelmän ja Basic droplet type - shared CPU
 
-![debianCPU](h414.png)
+![debianCPU](images/h414.png)
 
 CPU optionsiin valitsen ``Regular, 512MB/1CPU, 10GB SSD, 500GB transfer``, näin saadaan hintaa tiputettua 4$:iin
 
-![fourdollars](h415.png)
+![fourdollars](images/h415.png)
 
 Valitsen authentication methodiksi ``Password``, sillä en ole vielä käyttänyt SSH-avainta. Tässä kohtaa on hyvä muistaa Tero Karvisen ohje vahvasta salasanasta, käytetään aina vahvaa salasanaa.
 
-![PassWord](h416.png)
+![PassWord](images/h416.png)
 
 Tämän jälkeen en valitse mitään ylimääräisiä palveluja. ``1 Droplet`` riittää, ``Hostname`` kohtaan laitan jotain neutraalia, koska tämä tulee olemaan julkinen nimi. Tageta ei tarvita. Näiden jälkeen painetaan sinistä painiketta: ``Create Droplet``
 
-![CreateDrop](h417.png)
+![CreateDrop](images/h417.png)
 
 *klo 14:27*
 
 Noin minuutti meni, kun Droplet muodostui, nyt sain palvelimen IP-osoitteen
 
-![IPDroplet](h418.png)
+![IPDroplet](images/h418.png)
 
 *valmis klo 14:28, aikaa kului 28min*
 
@@ -115,54 +115,54 @@ Noin minuutti meni, kun Droplet muodostui, nyt sain palvelimen IP-osoitteen
 
 Aloitetaan alkutoimet, ensin otetaan SSH-yhteys juuri vuokrattuun palvelimeen ``ssh root@167.71.54.154``, vastataan "yes" kysymykseen, annetaan salasana, joka luotiin aiemmin. Tämä on ainoa kerta, kun kirjaudumme *root*-käyttäjällä
 
-![alku](h419.png)
+![alku](images/h419.png)
 
 Jostain syystä salasana ei toimi. Yritin vaikka mitä variaatioita, mutta ei päässyt sisään, ainoa vaihtoehdo oli tuhota Droplet ja tehdä uusi samoilla tiedoilla. [3.10.2024, näyttäisi siltä, että SSH-kirjautuminen oli käytössä, vaikka valitsin salasanakirjautumisen]
 
-![UusiD](h410.png)
+![UusiD](images/h410.png)
 
 *klo 14:51 uusi yritys*
 
 Nyt onnistui, sisällä ollaan
 
-![UusiSisalla](h420.png)
+![UusiSisalla](images/h420.png)
 
 Nyt voidaan alkaa tekemään ensimmäisiä toimintoja palvelimelle.
 
 - Asennetaan palomuuri ``sudo apt-get install ufw``, tehdään reikä palomuuriin ``sudo ufw allow 22/tcp``, laitetaan palomuuri päälle ``sudo ufw enable``
 
-![ufwinst](h421.png)
+![ufwinst](images/h421.png)
 
 - Luodaan samalla vielä ihmiskäyttäjä, ennen uudelleenkäynnistystä ``sudo adduser santeri``, taas annetaan vahva salasana, "Full Name":een laitoin vaurasan ja jätin muut tiedot tyhjiksi
 
-![kayttajaLuonti](h422.png)
+![kayttajaLuonti](images/h422.png)
 
 - Annetaan käyttäjälle oikeuksia ``sudo adduser santeri sudo``, ``sudo adduser santeri adm``, ``sudo adduser santeri admin``
 
-![imagesudo](h423.png)
+![imagesudo](images/h423.png)
 
-![imageadm](h424.png)
+![imageadm](images/h424.png)
 
-![imageadmin](h425.png)
+![imageadmin](images/h425.png)
 
 Näistä viimeisin ei toimi, ei ymmärtääkseni tarvitse toimiakaan.
 
 - Bootataan virtuaalikone komennolla ``reboot``
 
-![imagereboot](h426.png)
+![imagereboot](images/h426.png)
 
 - Kirjauduin nyt luodulla käyttäjällä sisälle ja ajoin päivityksen ``sudo apt-get update`` kokeillakseni, että oikeudet toimivat
 
-![imagesudoUserjoo](h427.png)
+![imagesudoUserjoo](images/h427.png)
 
 - Kuka olen ja missä olen?
 
-![imagewhoamig](h428.png)
+![imagewhoamig](images/h428.png)
 
 
 - Nyt voidaan sulkea *root*-käyttäjän SSH-yhteys. ``sudo usermod --lock root`` komennolla saadaan root-salasana pois. Nyt mennään ``sudoedit /etc/ssh/sshd_config``, ja muutetaan ``PermitRootLogin no`` "ctrl+s" tallennetaan tiedosto ja "ctrl+x" exit editor. Näin saadaan root lukittua. Tämän jälkeen vielä ``sudo service ssh restart``
 
-![imagerootloginno](h429.png)
+![imagerootloginno](images/h429.png)
 
 - Nyt päivitellään ohjelmat komennoilla ``sudo apt-get update``, ``sudo apt-get upgrade``, ja ``sudo apt-get dist-upgrade``. Muutaman minuutin kuluttua kaikki ohjelmat ovat päivitetty.
 
@@ -174,40 +174,40 @@ Näistä viimeisin ei toimi, ei ymmärtääkseni tarvitse toimiakaan.
 
 - Asennetaan Apache2 komennolla ``sudo apt-get install apache2``, varmuudeksi päivitetään kaikki ``sudo apt-get update``, tarkistan apachen tilan ``sudo systemctl status apache2``
 
-![StatusApache](h430.png)
+![StatusApache](images/h430.png)
 
 Kello on näemmä väärässä ajassa, joten yritän vaihtaa sen vastaamaan nykyistä Suomen kesäaikaa UTC+3. Löysin ohjeet ensin ChatGPT:n avulla, komento näytti niin hämärältä, että oli pakko etsiä toisesta lähteestä. Debian wiki näytti samaa komentoa, joten uskalsin käyttää ``sudo dpkg-reconfigure tzdata``, sieltä valitsin "Europe", ja "Helsinki"
 
-![Europekello](h431.png)
+![Europekello](images/h431.png)
 
-![Helsinki](h432.png)
+![Helsinki](images/h432.png)
 
 Aika ei näyttänyt muuttuvan, joten käynnistin palvelimen uusiksi ``sudo reboot``
 
-![reboot](h433.png)
+![reboot](images/h433.png)
 
-![KelloOikein](h434.png)
+![KelloOikein](images/h434.png)
 
 Nyt kellonaika näyttää oikealta, voidaan jatkaa työskentelyä. Teen reiän palomuuriin ``sudo ufw allow 80/tcp``
 
-![ufw80](h435.png)
+![ufw80](images/h435.png)
 
 Päällekirjoitetaan apachen testisivu ``echo Testisivu|sudo tee /var/www/html/index.html`` ja potkaistaan demonia ``sudo systemctl restart apache2``<br>
 Menin Windowsin Chrome selaimella osoitteeseen ``http://165.232.119.164/``, siellä näkyy nyt kyseinen Testisivu
 
-![Testisivuyks](h436.png)
+![Testisivuyks](images/h436.png)
 
 Tehdään nyt suoraan hieman järkevämmäksi tämä muuttamalla tuo testisivu uuteen muotoon ``sudo micro /var/www/html/index.html`` ja päällekirjoitetaan "Testisivu" teksti
 
-![HtmlJuttu](h437.png)
+![HtmlJuttu](images/h437.png)
 
 Potkaistaan vielä demonia ``sudo systemctl restart apache2``, Chromessa näyttää tältä
 
-![ChromeKaks](h438.png)
+![ChromeKaks](images/h438.png)
 
 Ja kännykällä tältä
 
-![KannyKuva](h439.png)
+![KannyKuva](images/h439.png)
 
 *valmis klo 17:46, aikaa kului 47min*<br>
 *14.9.2024 klo 14:17 lisätty rivinvaihto tekstin alkuun*
