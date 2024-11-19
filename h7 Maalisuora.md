@@ -34,7 +34,7 @@ Pikaisen vilkaisun jälkeen otan ensimmäisenä käsittelyyn vanhan kunnon Pytho
 
 Sitten ajetaan tiedosto ``python3 hello.py``
 
-![heipyytton](https://github.com/user-attachments/assets/25690c00-06c7-4ca7-88cd-03ed3bb02727)
+![heipyytton](images/h711.png)
 
 ### Go
 
@@ -42,23 +42,23 @@ Seuraavana tuo Go vaikuttaisi järkevältä. Täytyy ensin asentaa golang-go kom
 
 Kokeilen luoda go-tiedoston ``micro heippis.go``, tiedostoon kirjoitan:
 
-![goheipatteksti](https://github.com/user-attachments/assets/330beac3-a5a8-489e-b489-3c44eba11eec)
+![goheipatteksti](images/h712.png)
 
 Kokeilen luoda "hei.go" tiedostoa tuon pohjalta komennolla ``go build -o heippis.go hei.go``, mutta ei onnistu. Veikkaan että johtuu alkuperäisen tiedoston nimestä ".go"-päätteellä kokeilen muuttaa "heippis.go" tiedoston --> "heippis"
 
 ``mv heippis.go heippis``. Huomaan että olen tehnyt nämä suoraan /home/santeri kansioon, tämä ei vetele, joten teen "code/" kansion minne siirrän nämä. ``mkdir code``, ei sentään c0de, eikä myöskään sammy, ``mv heippis code/ mv hello.py code/``, ihme herjoja tuli, mutta tiedostot siirtyivät /code kansioon
 
-![codekansio](https://github.com/user-attachments/assets/1d60eaea-cd24-483d-9e7c-95b75cccfdb8)
+![codekansio](images/h713.png)
 
 *Älkööt välittäkö teroco/ kansiosta, nothing to see here.* Ei pysty vieläkään käyttämään komentoa ``go build -o heippis heippis.go``, otetaanpa manuaali esille https://go.dev/doc/tutorial/getting-started#call.
 
 Nyt kokeilen suoraan raa'asti ohjeen mukaan ``go mod init example/hello``
 
-![gomodhel](https://github.com/user-attachments/assets/cba4a681-2ff6-41f2-abe4-caa0dcb2dc10)
+![gomodhel](images/h714.png)
 
 Teen "heippis":stä takaisin "heippis.go" tiedoston ``mv heippis heippis.go`` ja avaan sen microlla ``micro heippis.go``
 
-![taasgokoodi](https://github.com/user-attachments/assets/2270abb7-9617-4ae4-a465-a6daba297e1b)
+![taasgokoodi](images/h715.png)
 
 Taas tämä sama, eli
 
@@ -68,7 +68,7 @@ Taas tämä sama, eli
 
 Ohjeen mukaan ajoin seuraavaksi ``go mod tidy``, tästä en ole varma oliko pakollinen vaihe. Seuraavaksi komennolla ``go run .`` sain ajettua tuon koodin oikein.
 
-![gotoimii](https://github.com/user-attachments/assets/ee7c2c0a-475b-4b0b-a289-21a799756815)
+![gotoimii](images/h716.png)
 
 ### C
 
@@ -76,11 +76,11 @@ Tästäkään kielestä ei ole kokemusta, paitsi C# alkeita on joskus tullut ope
 
 ``micro heitaas.c``, luon uuden c tiedoston, jonne kirjoitan:
 
-![ctiedosto](https://github.com/user-attachments/assets/e49bdea7-6b98-4795-9e72-c78d414f16b4)
+![ctiedosto](images/h717.png)
 
 Täytyy vielä laatia .c-tiedostosta ohjelma ``gcc heitaas.c -o heitaasc``, nyt ohjelmaa voidaan ajaa komennolla ``./heitaasc``
 
-![cworks](https://github.com/user-attachments/assets/06476fd2-6dfb-4ae6-bdc4-a5ed11f300c5)
+![cworks](images/h718.png)
 
 *klo 13:40, 39min kaikkineen*
 
@@ -96,11 +96,11 @@ Olipa lyhyt ohje, homma tuli selväksi, mutta yritän löytää pidemmän teksti
 
 Eipä siihen sen enempää kaiketi ohjeita tarvita. Luon code/ kansioon uuden tiedoston ``micro kukamita.sh`` ja kirjoitan seuraavaa:
 
-![binbashteksti](https://github.com/user-attachments/assets/8c3145dc-add8-4f7a-9d58-d7e87123fde9)
+![binbashteksti](images/h719.png)
 
 Annan kaikille oikeudet suorittaa tiedosto komennolla ``chmod a+x kukamita.sh``, jonka jälkeen suoritetaan tiedosto komennolla ``bash kukamita.sh``
 
-![bashworksyes](https://github.com/user-attachments/assets/1f4a9956-25f7-4993-bc55-90077086dea2)
+![bashworksyes](images/h720.png)
 
 *klo 13:59*
 
@@ -116,7 +116,7 @@ Tämä olisi suoritettu komennolla ``sudo cp kukamita.sh /usr/local/bin/``]
 
 Etsin sopivan laboratorioharjoituksen hakukentästä "lab" haulla
 
-![labhaku](https://github.com/user-attachments/assets/45dd2e30-a403-4555-8d1b-ff6d3723d568)
+![labhaku](images/h721.png)
 
 Alimpana tuolla haulla löytyi järkevän oloinen [Final Lab for Linux Palvelimet 2024 Spring](https://terokarvinen.com/2024/arvioitava-laboratorioharjoitus-2024-linux-palvelimet/?fromSearch=lab) labraharjoitus
 
@@ -135,9 +135,9 @@ Tietenkin vielä täytyy asentaa täysin uusi virtuaalikone tätä tehtävää v
 
 Loin howdy.sh ``micro howdy.sh`` ja sinne
 
-![bashsisaltaa](https://github.com/user-attachments/assets/23589740-b5fd-4c97-92ea-4c0867977b3f)
+![bashsisaltaa](images/h722.png)
 
-![bashajettu](https://github.com/user-attachments/assets/fba4a4be-309b-4b15-a36a-3efc90353501)
+![bashajettu](images/h723.png)
 
 *klo 14:39*
 
@@ -154,11 +154,11 @@ Tässä tietenkin sama kopiointi jäi ajamatta, eli ``sudo cp howdy.sh /usr/loca
 
 Laitoin oikeudet ``chmod -R 750 /var/www`` ja ``sudo chown -R santeri:santeri /var/www``
 
-![varjateeapache](https://github.com/user-attachments/assets/8d1a159f-6678-4194-9c3c-aef9d4029167)
+![varjateeapache](images/h724.png)
 
-![htmlkakone](https://github.com/user-attachments/assets/4dcd070f-c63a-4902-9cee-2d1acecc307b)
+![htmlkakone](images/h725.png)
 
-![sivukakone](https://github.com/user-attachments/assets/ae1c7703-a8d2-474d-8bbf-ada5e529e60c)
+![sivukakone](images/h726.png)
 
 ### - g) Salattua hallintaa  127.0.0.1
 
@@ -170,15 +170,15 @@ Katsoin ohjeita täältä: https://terokarvinen.com/2008/03/10/ssh-public-key-au
 
 ``sudo apt-get install ssh``
 
-![ekasanterite](https://github.com/user-attachments/assets/28e04a32-5bdb-4a0d-903d-9e5a05e227df)
+![ekasanterite](images/h727.png)
 
 ``cd /home/santerite01/.ssh``
 
 ``ssh-keygen -t dsa``
 
-![keygentsa](https://github.com/user-attachments/assets/a6bb5260-e7c6-4615-ac72-471ef5ef6639)
+![keygentsa](images/h728.png)
 
-![keygen-tehty](https://github.com/user-attachments/assets/47c03bfa-ae93-4101-904e-724bce626792)
+![keygen-tehty](images/h729.png)
 
 ### - h) Djangon lahjat
 #### - Asenna omalle käyttäjällesi Django-kehitysympäristö
@@ -193,16 +193,16 @@ Lähden tekemään tätä ohjetta soveltaen https://terokarvinen.com/2022/django
 
 Tämmöistä sain tehtyä, en ole täysin varma oliko tässä kaikki mitä haettiin, lukuunottamatta "size"-kenttää
 
-![jankko1](https://github.com/user-attachments/assets/6b6d9cc8-9ac4-4767-994f-776d9d8d050d)
+![jankko1](images/h730.png)
 
 ---
 
-![erkki](https://github.com/user-attachments/assets/19cf97ed-9e94-48b9-bdcf-b93299df4fcf)
+![erkki](images/h731.png)
 
 
 ---
 
-![assyt](https://github.com/user-attachments/assets/6f08f956-9b4b-4215-828b-04752e7e84f8)
+![assyt](images/h732.png)
 
 ### - h) Tuotantopropelli
 
@@ -213,7 +213,7 @@ Tämmöistä sain tehtyä, en ole täysin varma oliko tässä kaikki mitä haett
 
 Tämä ohje on kovassa käytössä tätä tehtäessä https://terokarvinen.com/2022/deploy-django/
 
-![lahjatietokanta](https://github.com/user-attachments/assets/8d38393e-6335-4bad-b842-d966f6323be9)
+![lahjatietokanta](images/h733.png)
 
 Kuvassa näkyy lahjatietokanta apachen pyörittämänä admin-näkymässä, viimeinen kohta tehtävästä jäi tekemättä
 
@@ -225,7 +225,7 @@ Tähän ohjeet alkavat olemaan jo päässä aika hyvin, mutta ohjeet asennukseen
 
 Tehtävänannon mukaan tästä ei tarvitse kirjoittaa raporttia, joten raportoin vain sen, että asennan ainoastaan tehtävänannossa sallitun tulimuurin ja päivitän kaiken ``sudo apt-get dist-upgrade``. Lisäksi haluan paremman resoluution, ja että voin kopioida asioita oman tietokoneen ja virtuaalikoneen välillä, joten asensin VBox Guest additionsin
 
-![labrat](https://github.com/user-attachments/assets/fecae4ff-4c98-4d5e-a970-83f92dc41f15)
+![labrat](images/h734.png)
 
 Siellä on nyt LabRat odottamassa tositoimia
 
