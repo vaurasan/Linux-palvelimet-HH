@@ -270,9 +270,3 @@ The Apache Foundation. 2024. Name-based Virtual Host Support. Luettavissa: https
 Tätä dokumenttia saa kopioida ja muokata GNU General Public License (versio 2 tai uudempi) mukaisesti. http://www.gnu.org/licenses/gpl.html<br>
 Pohjana Tero Karvinen 2012: Linux kurssi, http://terokarvinen.com<br><br>
 Kirjoittanut <em>Santeri Vauramo</em>, 2024
-
----
-
-Tätä dokumenttia saa kopioida ja muokata GNU General Public License (versio 2 tai uudempi) mukaisesti. http://www.gnu.org/licenses/gpl.html<br>
-Pohjana Tero Karvinen 2012: Linux kurssi, http://terokarvinen.com<br><br>
-Kirjoittanut <em>Santeri Vauramo</em>, 2024
