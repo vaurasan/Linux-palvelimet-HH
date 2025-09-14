@@ -27,7 +27,7 @@ a) Pilvipalvelimen vuokraus ja asennus
 - Pilvipalvelimen vuokraus alkaa valitsemalla ``Droplets -> Create Droplet``
 - Seuraavaksi valitaan käyttöjärjestelmä, tässä tapauksessa mahdollisimman uusi ``Debian``
 - Valitaan prosessori, tallennustila, sekä RAM
-- Datakeskukseksi valikoitui Amsterdam, koska etäisyys Helsinkiin on 1508km (itse olisin valinnut mieluummin Frankfurtin, jos hinta on sama, sillä merikaapeli kulkee suoraan Helsingistä Saksaan, tämän opin eilen ICT-infra johdantokurssilla. **Cretits:** Pekka Korpi-Tassi)
+- Datakeskukseksi valikoitui Amsterdam, koska etäisyys Helsinkiin on 1508km (itse olisin valinnut mieluummin Frankfurtin, jos hinta on sama, sillä merikaapeli kulkee suoraan Helsingistä Saksaan, tämän opin eilen ICT-infra johdantokurssilla. **Credits:** Pekka Korpi-Tassi) [korjattu kirjoitusvirhe 14.9.2025]
 - Autentikointimenetelmäksi täytyy valita ``salasana`` ellei ``SSH-avaimen`` käyttö ole tuttua. Salasanan tulee olla vahva.
 - Mitään ylimääräisiä palveluja ei kannata ottaa, lopuksi annetaan virtuaalikoneelle julkinen nimi, tämän jälkeen ``Create Droplet`` ja odotuksen jälkeen DigitalOcean ilmoittaa pilvikoneen ``IP-osoitteen``
 
